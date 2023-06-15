@@ -1,0 +1,20 @@
+# spec_file.spec
+
+# Agrega el siguiente import al principio del archivo
+from PyInstaller.utils.hooks import collect_data_files
+
+# Agrega el siguiente código al final del archivo
+a = Analysis(['nuevo.py'],
+             pathex=['C:\Users\carol\OneDrive\Escritorio\programa_informe'],
+             binaries=[],
+             datas=collect_data_files('C:\Users\carol\OneDrive\Escritorio\programa_informe')],
+             ...
+             )
+pyz = PYZ(a.pure, a.zipped_data,
+          cipher=block_cipher)
+exe = EXE(pyz,
+          ...
+          console=True)
+coll = COLLECT(exe,
+               ...
+               )
