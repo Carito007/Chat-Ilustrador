@@ -1,5 +1,6 @@
 # Este programa está destinado a mostrar la infomarción que se haya extraído de una conversación de Whatsapp con fines forenses.
-#
+# Autor: Carolina Soto. Contacto: +54 9 343 4528862
+# mail: caritodeveloper@gmail.com
 
 import os
 
