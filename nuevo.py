@@ -1,3 +1,6 @@
+# Este programa está destinado a mostrar la infomarción que se haya extraído de una conversación de Whatsapp con fines forenses.
+#
+
 import os
 
 def extraer_nombres(archivo):
@@ -83,6 +86,7 @@ def generar_html(resultados_img, resultados_audio, resultados_video, resultados_
 # Archivo de texto para extraer los nombres de archivo
 
 archivo_txt = str(input("Ingrese el nombre del chat: ") + ".txt")
+numInforme= str(input("Ingrese el número de informe o legajo: ")).replace("/","-")
 
 # Leer el contenido del archivo de texto
 with open(archivo_txt, 'r', encoding='UTF-8') as f:
@@ -100,7 +104,7 @@ nombres_archivos_pdf = nombres_archivos[4]
 html = generar_html(nombres_archivos_img, nombres_archivos_audio, nombres_archivos_video, nombres_archivos_sticker, nombres_archivos_pdf, contenido_txt)
 
 # Ruta del archivo HTML de salida
-ruta_html = 'resultado.html'
+ruta_html = numInforme + "_" + archivo_txt.replace(".txt","") + '.html'
 
 # Guardar el contenido HTML en el archivo
 with open(ruta_html, 'w', encoding='UTF-8') as archivo_html:
