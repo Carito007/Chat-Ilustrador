@@ -66,17 +66,31 @@ def generar_html(resultados_img, resultados_audio, resultados_video, resultados_
     html += '<pre>\n'
 
     # Reemplazar las menciones de nombres de archivo por los elementos HTML de imagen y audio
-    for nombre_img in resultados_img:
-        contenido_txt = contenido_txt.replace(nombre_img, f'<img src="{nombre_img}" alt="{nombre_img}">')
-    for nombre_audio in resultados_audio:
-        contenido_txt = contenido_txt.replace(nombre_audio, f'<audio controls><source src="{nombre_audio}" type="audio/ogg">Your browser does not support the audio element.</audio>')
-    for nombre_video in resultados_video:
-        contenido_txt = contenido_txt.replace(nombre_video, f'<video controls><source src="{nombre_video}" type="video">Your browser does not support the audio element.</audio>')
-    for nombre_sticker in resultados_sticker:
-        contenido_txt = contenido_txt.replace(nombre_sticker, f'<img src="{nombre_sticker}" alt="{nombre_sticker}">')
-    for nombre_pdf in resultados_pdf:
-        contenido_txt = contenido_txt.replace(nombre_pdf, f'<a href="{nombre_pdf}" target="_blank">{nombre_pdf}</a>')
-
+    try:
+        for nombre_img in resultados_img:
+            contenido_txt = contenido_txt.replace(nombre_img, f'<img src="{nombre_img}" alt="{nombre_img}">')
+    except:
+        pass
+    try:        
+        for nombre_audio in resultados_audio:
+            contenido_txt = contenido_txt.replace(nombre_audio, f'<audio controls><source src="{nombre_audio}" type="audio/ogg">Your browser does not support the audio element.</audio>')
+    except:
+        pass
+    try:
+        for nombre_video in resultados_video:
+            contenido_txt = contenido_txt.replace(nombre_video, f'<video controls><source src="{nombre_video}" type="video">Your browser does not support the audio element.</audio>')
+    except:
+        pass
+    try:
+        for nombre_sticker in resultados_sticker:
+            contenido_txt = contenido_txt.replace(nombre_sticker, f'<img src="{nombre_sticker}" alt="{nombre_sticker}">')
+    except:
+        pass
+    try:
+        for nombre_pdf in resultados_pdf:
+            contenido_txt = contenido_txt.replace(nombre_pdf, f'<a href="{nombre_pdf}" target="_blank">{nombre_pdf}</a>')
+    except:
+        pass
 
     html += contenido_txt
     html += '</pre>\n'
