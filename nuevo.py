@@ -70,7 +70,8 @@ def generar_html(resultados_img, resultados_audio, resultados_video, resultados_
         for nombre_img in resultados_img:
             contenido_txt = contenido_txt.replace(nombre_img, f'<img src="{nombre_img}" alt="{nombre_img}">')
     except:
-        pass
+        contenido_txt = contenido_txt.replace(nombre_img, f'<span "MULTIMEDIA NO ENCONTRADO">')
+        # pass
     try:        
         for nombre_audio in resultados_audio:
             contenido_txt = contenido_txt.replace(nombre_audio, f'<audio controls><source src="{nombre_audio}" type="audio/ogg">Your browser does not support the audio element.</audio>')
